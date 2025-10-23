@@ -541,6 +541,7 @@ $ifi %WNDFLH_DOL%==AAA               PARAMETER WNDFLH(AAA)         "Full load ho
 $ifi %WNDFLH_DOL%==AAA_GGG           PARAMETER WNDFLH(AAA,GGG)     "Full load hours for wind power (hours)"  %semislash%
 $ifthen     EXIST '../data/Weather_Year/%WEATHER_YEAR%/WNDFLH.inc' $INCLUDE      '../data/Weather_Year/%WEATHER_YEAR%/WNDFLH.inc';
 $elseif EXIST '../data/WNDFLH.inc' $INCLUDE '../../base/data/WNDFLH.inc';
+$endif
 %semislash%;
 *------------- Any WNDFLH additions for addon to be placed here: ----------------
 $include "../../base/addons/_hooks/wndflhadditions.inc"
@@ -549,6 +550,7 @@ $ifi %SOLEFLH_DOL%==AAA              PARAMETER SOLEFLH(AAA)        "Full load ho
 $ifi %SOLEFLH_DOL%==AAA_GGG          PARAMETER SOLEFLH(AAA,GGG)    "Full load hours for solar power (hours)"  %semislash%
 $ifthen     EXIST '../data/Weather_Year/%WEATHER_YEAR%/SOLEFLH.inc' $INCLUDE      '../data/Weather_Year/%WEATHER_YEAR%/SOLEFLH.inc';
 $elseif  EXIST '../data/SOLEFLH.inc' $INCLUDE '../../base/data/SOLEFLH.inc';
+$endif
 %semislash%;
 
 
@@ -783,6 +785,7 @@ $if not EXIST '../data/WTRRRVAR_T.inc' $INCLUDE '../../base/data/WTRRRVAR_T.inc'
 PARAMETER WND_VAR_T(AAA,SSS,TTT)                   "Variation of the wind generation"    %semislash%
 $ifthen     EXIST '../data/Weather_Year/%WEATHER_YEAR%/WND_VAR_T.inc' $INCLUDE      '../data/Weather_Year/%WEATHER_YEAR%/WND_VAR_T.inc';
 $elseif EXIST '../data/WND_VAR_T.inc' $INCLUDE '../../base/data/WND_VAR_T.inc';
+$endif
 %semislash%;
 *------------- Any WND_VAR_T additions for addon to be placed here: ----------------
 $include "../../base/addons/_hooks/wnd_var_tadditions.inc"
@@ -790,6 +793,7 @@ $include "../../base/addons/_hooks/wnd_var_tadditions.inc"
 PARAMETER SOLE_VAR_T(AAA,SSS,TTT)                  "Variation of the solarE generation"   %semislash%
 $ifthen     EXIST '../data/Weather_Year/%WEATHER_YEAR%/SOLE_VAR_T.inc' $INCLUDE      '../data/Weather_Year/%WEATHER_YEAR%/SOLE_VAR_T.inc';
 $elseif EXIST '../data/SOLE_VAR_T.inc' $INCLUDE '../../base/data/SOLE_VAR_T.inc';
+$endif
 %semislash%;
 
 PARAMETER SOLH_VAR_T(AAA,SSS,TTT)                  "Variation of the solarH generation"   %semislash%
