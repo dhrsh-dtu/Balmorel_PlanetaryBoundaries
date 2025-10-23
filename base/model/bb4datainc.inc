@@ -539,16 +539,16 @@ $if not EXIST '../data/WTRRRFLH.inc' $INCLUDE '../../base/data/WTRRRFLH.inc';
 
 $ifi %WNDFLH_DOL%==AAA               PARAMETER WNDFLH(AAA)         "Full load hours for wind power (hours)"  %semislash%
 $ifi %WNDFLH_DOL%==AAA_GGG           PARAMETER WNDFLH(AAA,GGG)     "Full load hours for wind power (hours)"  %semislash%
-$if     EXIST '../data/WNDFLH.inc' $INCLUDE      '../data/WNDFLH.inc';
-$if not EXIST '../data/WNDFLH.inc' $INCLUDE '../../base/data/WNDFLH.inc';
+$ifthen     EXIST '../data/Weather_Year/%WEATHER_YEAR%/WNDFLH.inc' $INCLUDE      '../data/Weather_Year/%WEATHER_YEAR%/WNDFLH.inc';
+$elseif EXIST '../data/WNDFLH.inc' $INCLUDE '../../base/data/WNDFLH.inc';
 %semislash%;
 *------------- Any WNDFLH additions for addon to be placed here: ----------------
 $include "../../base/addons/_hooks/wndflhadditions.inc"
 
 $ifi %SOLEFLH_DOL%==AAA              PARAMETER SOLEFLH(AAA)        "Full load hours for solar power (hours)"  %semislash%
 $ifi %SOLEFLH_DOL%==AAA_GGG          PARAMETER SOLEFLH(AAA,GGG)    "Full load hours for solar power (hours)"  %semislash%
-$if     EXIST '../data/SOLEFLH.inc' $INCLUDE      '../data/SOLEFLH.inc';
-$if not EXIST '../data/SOLEFLH.inc' $INCLUDE '../../base/data/SOLEFLH.inc';
+$ifthen     EXIST '../data/Weather_Year/%WEATHER_YEAR%/SOLEFLH.inc' $INCLUDE      '../data/Weather_Year/%WEATHER_YEAR%/SOLEFLH.inc';
+$elseif  EXIST '../data/SOLEFLH.inc' $INCLUDE '../../base/data/SOLEFLH.inc';
 %semislash%;
 
 
@@ -655,6 +655,7 @@ $include "../../base/addons/_hooks/deadditions.inc"
 PARAMETER DH(YYY,AAA,DHUSER)    "Annual heat consumption (MWh)"  %semislash%
 $if     EXIST '../data/DH.inc' $INCLUDE         '../data/DH.inc';
 $if not EXIST '../data/DH.inc' $INCLUDE '../../base/data/DH.inc';
+$if     EXIST '../data/Weather_Year/%WEATHER_YEAR%/DH_RESH.inc' $INCLUDE         '../data/Weather_Year/%WEATHER_YEAR%/DH_RESH.inc';
 %semislash%;
 *------------- Any DH additions for addon to be placed here: ----------------
 $include "../../base/addons/_hooks/dhadditions.inc"
@@ -780,15 +781,15 @@ $if not EXIST '../data/WTRRRVAR_T.inc' $INCLUDE '../../base/data/WTRRRVAR_T.inc'
 %semislash%;
 
 PARAMETER WND_VAR_T(AAA,SSS,TTT)                   "Variation of the wind generation"    %semislash%
-$if     EXIST '../data/WND_VAR_T.inc' $INCLUDE      '../data/WND_VAR_T.inc';
-$if not EXIST '../data/WND_VAR_T.inc' $INCLUDE '../../base/data/WND_VAR_T.inc';
+$ifthen     EXIST '../data/Weather_Year/%WEATHER_YEAR%/WND_VAR_T.inc' $INCLUDE      '../data/Weather_Year/%WEATHER_YEAR%/WND_VAR_T.inc';
+$elseif EXIST '../data/WND_VAR_T.inc' $INCLUDE '../../base/data/WND_VAR_T.inc';
 %semislash%;
 *------------- Any WND_VAR_T additions for addon to be placed here: ----------------
 $include "../../base/addons/_hooks/wnd_var_tadditions.inc"
 
 PARAMETER SOLE_VAR_T(AAA,SSS,TTT)                  "Variation of the solarE generation"   %semislash%
-$if     EXIST '../data/SOLE_VAR_T.inc' $INCLUDE      '../data/SOLE_VAR_T.inc';
-$if not EXIST '../data/SOLE_VAR_T.inc' $INCLUDE '../../base/data/SOLE_VAR_T.inc';
+$ifthen     EXIST '../data/Weather_Year/%WEATHER_YEAR%/SOLE_VAR_T.inc' $INCLUDE      '../data/Weather_Year/%WEATHER_YEAR%/SOLE_VAR_T.inc';
+$elseif EXIST '../data/SOLE_VAR_T.inc' $INCLUDE '../../base/data/SOLE_VAR_T.inc';
 %semislash%;
 
 PARAMETER SOLH_VAR_T(AAA,SSS,TTT)                  "Variation of the solarH generation"   %semislash%

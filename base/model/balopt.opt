@@ -75,6 +75,10 @@ $setglobal bb4 yes
 * The following global variables concern the choice of details in some of the models.
 * Note that some of the choices are mutually dependent.
 
+*-----------------------WEATHER YEAR--------------------------------------------------------
+$setglobal WEATHER_YEAR
+*base choice 2012
+
 *-------- Seasonal rolling horizon  ---------
 * Optimize seasons with a rolling horizon approach instead of all together.
 *NOTE: This option is supposed to be combined with the option "import_results", which must contain information for all S and at least the first element in T
